@@ -20,38 +20,66 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
   // Part 1
   function shortenPageTitle() {
-
+    document.getElementById("main-title").innerText = "Hi! Welcome to DOM's Homepage!"
   }
+  shortenPageTitle();
 
 
   // Part 2
-  function changeBodyBgColor() {
-
+    function changeBodyBgColor() {
+    document.body.style.backgroundColor = "skyblue";
   }
-
-
+  
+  changeBodyBgColor();
+  
   // Part 3
   function removeLastFavoriteThing() {
-
+   var favoriteList= document.getElementById("favorite-things");
+   var staring = favoriteList.children[5];
+   favoriteList.removeChild(staring);
   }
 
-
+  removeLastFavoriteThing()
+  
   // Part 4
   function makeSpecialTitlesBigger() {
+    
+    var sizeChange = document.getElementsByClassName("special-title");
 
+    for (var i = 0; i< sizeChange.length; i++) {
+      var moji = sizeChange[i];
+      moji.style.fontSize = "2.0rem";
+    }
   }
 
-
+  makeSpecialTitlesBigger()
+  
+  
   // Part 5
   function RemoveChicagoRace() {
-
+    
+  //   var nochicago = document.
+  //   getElementById("past-races"); 
+    
+  //   var keshitailist = document.querySelectorAll("li")[3];
+    
+  //  nochicago.removeChild(keshitailist);
+    
   }
 
+  RemoveChicagoRace()
+  
   // Part 6
   function addPastRace() {
-
+    var newplace = document.createElement("li");
+    newplace.textContent = "Norfolk";
+    
+    var newlist = document.getElementById("past-races");
+    newlist.appendChild(newplace);
+  
   }
 
+  addPastRace()
 
   // Part 7
   function createNewBlogPost() {
@@ -59,3 +87,4 @@ document.addEventListener('DOMContentLoaded', function(event) {
   }
 
 });
+
