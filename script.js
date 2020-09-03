@@ -20,7 +20,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
   // Part 1
   function shortenPageTitle() {
-    document.getElementById("main-title").innerText = "Hi! Welcome to DOM's Homepage!"
+    var mainTitle = document.getElementById("main-title");
+    mainTitle.innerText = "Hi! Welcome to DOM's Homepage!";
+  
   }
   shortenPageTitle();
 
@@ -36,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
   function removeLastFavoriteThing() {
    var favoriteList= document.getElementById("favorite-things");
    var staring = favoriteList.children[5];
+   //or favoriteList.lastElementChild;
    favoriteList.removeChild(staring);
   }
 
@@ -57,24 +60,24 @@ document.addEventListener('DOMContentLoaded', function(event) {
   
   // Part 5
   function RemoveChicagoRace() {
-    
-  //   var nochicago = document.
-  //   getElementById("past-races"); 
-    
-  //   var keshitailist = document.querySelectorAll("li")[3];
-    
-  //  nochicago.removeChild(keshitailist);
-    
+    var noChicago = document.getElementById("past-races"); 
+   
+    var keshitaiList = noChicago.children[3];
+    console.log(keshitaiList);
+    noChicago.removeChild(keshitaiList);
+
   }
 
   RemoveChicagoRace()
   
   // Part 6
   function addPastRace() {
-    var newplace = document.createElement("li");
-    newplace.textContent = "Norfolk";
     
     var newlist = document.getElementById("past-races");
+    var newplace = document.createElement("li");
+    newplace.innerText = "Norfolk";
+    // I used textContent and worked.
+    
     newlist.appendChild(newplace);
   
   }
@@ -83,8 +86,22 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
   // Part 7
   function createNewBlogPost() {
-
+    var newP = document.createElement("p");
+    newP.innerText = "City of mermaids";
+    var newH1 =document.createElement("h1");
+    newH1.innerText = "Norfolk";
+    var newDiv = document.createElement("div");
+    // newDiv.classList[0] = "blog-post";
+    // newDiv.classList[1] = "purple";
+    newDiv.className = "blog-post purple";
+    newDiv.appendChild(newH1);
+    newDiv.appendChild(newP);
+    var mainDivList = document.getElementsByClassName('main');
+    var mainDiv = mainDivList[0];
+    mainDiv.appendChild(newDiv)
   }
+  
+  createNewBlogPost()
 
 });
 
